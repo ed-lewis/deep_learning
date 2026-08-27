@@ -1,0 +1,5 @@
+Backpropagation na mão: feito
+Backpropagation código: feito
+
+Agora preciso entender e implementar o MNIST.
+Fazer código com python puro.

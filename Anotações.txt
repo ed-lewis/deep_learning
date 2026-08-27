@@ -1,0 +1,69 @@
+ANOTAÇÕES SOBRE OFDM - ORTHOGONAL FREQUENCY DIVISION MULTIPLEXING (MULTIPLEXAÇÃO POR DIVISÃO DE FREQUÊNCIA ORTOGONAL)
+
+- É uma técnica de modulação que divide o canal de comunicação em várias subportadoras (pequenas faixas de frequências), transmitindo dados em paralelo.
+
+	* Em vez de mandar tudo numa só portadora larga, você distribui a informação em muitas portadoras estreitas.
+
+	* Isso deixa o sistema mais robusto contra interferência intersimbólica (ISI) e multipercurso (eco do sinal em ambientes com prédios, paredes etc.).
+
+Tá, mas o que é interferência intersimbólica?
+R: Interferência intersimbólica (ISI)
+
+O canal de rádio em 5G (ou Wi-Fi, 4G etc.) não é “limpo”.
+
+O sinal pode refletir em prédios, carros, paredes → chamamos isso de multipercurso.
+
+Isso faz com que um mesmo símbolo chegue no receptor em instantes diferentes (primeiro o sinal direto, depois os ecos atrasados).
+
+🔴 Problema:
+Se o símbolo seguinte já começou antes do eco do símbolo anterior terminar, eles se sobrepõem no tempo.
+Isso gera a interferência intersimbólica (ISI): o símbolo anterior atrapalha a detecção do próximo.
+
+
+E por quê ortogonal? R: “Ortogonal” aqui vem do sentido matemático: duas funções são ortogonais se o produto interno entre elas for zero.
+
+No contexto de OFDM:
+
+	* Cada subportadora é um seno/cosseno (ou exponencial complexa) de frequência diferente.
+
+	* Essas ondas são escolhidas de modo que sejam ortogonais entre si dentro do intervalo de símbolo.
+
+	* Isso significa que, quando o receptor faz a demodulação (usando transformada de Fourier, geralmente FFT), 
+	não há interferência entre subportadoras vizinhas, mesmo que elas estejam sobrepostas no espectro.
+
+O que é intervalo de símbolo?
+ R: Quando transmitimos dados digitais, não mandamos “uns e zeros” diretamente,
+ mas símbolos modulados (por exemplo, uma fase ou amplitude de uma portadora).
+
+Cada símbolo tem uma duração no tempo, chamada de intervalo de símbolo.
+
+Exemplo: se a taxa de símbolos é de 1 Msímbolo/s, cada símbolo dura 1 μs.
+
+Dentro desse intervalo de símbolo, o receptor precisa captar a forma da onda e decidir qual símbolo foi transmitido.
+
+
+
+MIMO-OFDM no 5G
+
+O MIMO (Multiple Input Multiple Output) usa múltiplas antenas transmissoras e receptoras para explorar a diversidade espacial → mais taxa de dados, mais robustez.
+
+O OFDM garante que os sinais transmitidos nessas antenas possam ser decompostos sem se misturarem.
+
+O 5G combina isso: MIMO + OFDM → altíssima eficiência espectral, tolerância a canais com multipercurso e alta taxa de transmissão.
+
+
+Onde entra o Deep Learning?
+
+As redes neurais são aplicadas em várias etapas do sistema 5G MIMO-OFDM:
+
+Detecção de sinais (equalização em canais com forte ruído/multipercurso).
+
+Estimativa de canal (descobrir como o canal distorceu cada subportadora).
+
+Alocação adaptativa de recursos (decidir qual potência e modulação usar em cada subportadora).
+
+O ponto é que a ortogonalidade dá a base matemática para que a decomposição em subportadoras seja limpa, 
+e o Deep Learning ajuda a lidar com situações reais onde essa ortogonalidade pode ser degradada (ruído, não linearidades, interferência).
+
+PREFIXO CICLICO: 
+é uma técnica usada no OFDM para combater a interferência intersimbólica (ISI) e preservar a ortogonalidade entre subportadoras.
