@@ -1,3 +1,4 @@
+#################### 1ª parte #######################
 import numpy as np
 from keras.datasets import mnist # usarei apenas para baixar imagens do mnist
 
@@ -24,3 +25,21 @@ y_test = one_hot(y_test_raw)
 # Checagem até aqui:
 print(f"Formato das Imagens de Treino prontas: {X_train.shape}")
 print(f"Gabarito da primeira imagem (era {y_train_raw[0]}): {y_train[0]}")
+
+####################### 2ª parte #######################
+# ==========================================
+# INICIALIZAÇÃO DA ARQUITETURA
+# ==========================================
+print("\n--- Iniciando a Fase 2: Pesos e Biases ---")
+
+# 1. Matriz de Pesos (W): 784 entradas (pixels) x 10 neurônios de saída.
+# Inicializados com números aleatórios de uma distribuição Normal (Gaussiana) pequenos.
+W = np.random.randn(784, 10) * 0.01
+
+# 2. Vetor de Biases (B): 10 posições (uma para cada neurônio).
+# Inicializados com zeros, pois deslocarão a função apenas quando o aprendizado começar.
+b = np.zeros(10)
+
+# Verificando se estão no tamanho certo
+print(f"Dimensão da Matriz de Pesos (W): {W.shape}")
+print(f"Dimensão do Vetor de Bias (b): {b.shape}")

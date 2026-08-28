@@ -1,0 +1,45 @@
+# --- Ambientes Virtuais (Conda, venv, pipenv) ---
+.conda/
+env/
+venv/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Arquivos Grandes e Dados (Essencial para não travar o Git) ---
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.csv
+*.xlsx
+*.parquet
+*.pkl
+*.pickle
+*.h5
+*.models
+*.weights
+*.pth
+*.onnx
+
+# --- Pastas de Dados (Caso use bases de dados locais) ---
+data/
+datasets/
+inputs/
+outputs/
+models/
+
+# --- Cache do Python e Compilação ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+
+# --- Configurações do VS Code e Sistema ---
+.vscode/
+.DS_Store
+Thumbs.db
